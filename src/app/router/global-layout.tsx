@@ -3,7 +3,17 @@ import { Outlet } from 'react-router';
 
 export default function GlobalLayout() {
   return (
-    <main>
+    <main
+      className="
+        flex flex-col
+        min-h-[100dvh]
+        w-full
+        min-w-[var(--min-width)]
+        max-w-[var(--max-width)]
+        mx-auto
+        bg-white
+      "
+    >
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
