@@ -1,3 +1,31 @@
+@import url('https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css');
+@import './tokens.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --min-width: 375px;
+  --max-width: 430px;
+  --height: 100dvh;
+}
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  font-family: Pretendard, system-ui, sans-serif;
+}
+::-webkit-scrollbar {
+  display: none;
+}
