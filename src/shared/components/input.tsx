@@ -21,8 +21,8 @@ const baseInput = `
   focus:text-gray-950
   focus:outline-none
 
- [&:not(:placeholder-shown)]:border-gray-950
- [&:not(:placeholder-shown)]:text-gray-950
+  [&:not(:focus):not(:placeholder-shown)]:border-gray-950
+  [&:not(:focus):not(:placeholder-shown)]:text-gray-950
 
   p-[1.6rem]
 `;
@@ -41,7 +41,7 @@ const Input = ({ inputSize = 'md', icon, className, ...props }: InputProps) => {
           className="absolute left-[1.1rem] top-1/2
           -translate-y-1/2 pointer-events-none focus:text-primary
           text-gray-300 group-focus-within:text-primary 
-          group-[&:has(input:not(:placeholder-shown))]:text-gray-950"
+          group-[&:has(input:not(:focus):not(:placeholder-shown))]:text-gray-950"
         >
           {icon}
         </span>
