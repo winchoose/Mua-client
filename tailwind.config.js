@@ -29,35 +29,35 @@ export default {
       },
       fontSize: {
         title: [
-          '28px',
+          '2.8rem',
           { lineHeight: '1.2', fontWeight: '700', letterSpacing: '-0.04em' },
         ],
         h1: [
-          '24px',
+          '2.4rem',
           { lineHeight: '1.2', fontWeight: '700', letterSpacing: '-0.04em' },
         ],
         h2: [
-          '22px',
+          '2.2rem',
           { lineHeight: '1.2', fontWeight: '600', letterSpacing: '-0.04em' },
         ],
         h3: [
-          '18px',
+          '1.8rem',
           { lineHeight: '1.5', fontWeight: '600', letterSpacing: '-0.04em' },
         ],
         body1: [
-          '16px',
+          '1.6rem',
           { lineHeight: '1.5', fontWeight: '500', letterSpacing: '-0.04em' },
         ],
         body2: [
-          '14px',
+          '1.4rem',
           { lineHeight: '1.5', fontWeight: '500', letterSpacing: '-0.04em' },
         ],
         body3: [
-          '14px',
+          '1.4rem',
           { lineHeight: '1.5', fontWeight: '400', letterSpacing: '-0.04em' },
         ],
         caption: [
-          '12px',
+          '1.2rem',
           { lineHeight: '1.5', fontWeight: '400', letterSpacing: '-0.04em' },
         ],
       },

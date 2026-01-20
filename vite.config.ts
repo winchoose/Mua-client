@@ -11,6 +11,9 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         icon: true, // viewBox 유지 + size 제어 쉬움
+        replaceAttrValues: {
+          black: 'currentColor',
+        },
       },
     }),
   ],
