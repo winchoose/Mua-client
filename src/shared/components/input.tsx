@@ -19,6 +19,7 @@ const baseInput = `
 
   focus:border-primary
   focus:text-gray-950
+  focus:outline-none
 
  [&:not(:placeholder-shown)]:border-gray-950
  [&:not(:placeholder-shown)]:text-gray-950
