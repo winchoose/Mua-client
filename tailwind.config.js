@@ -7,6 +7,7 @@ export default {
         primary: 'rgb(var(--primary) / <alpha-value>)',
         white: 'rgb(var(--white) / <alpha-value>)',
         red: 'rgb(var(--red) / <alpha-value>)',
+        yellow: 'rgb(var(--yellow) / <alpha-value>)',
 
         'sha-but': 'rgb(var(--sha-but) / <alpha-value>)',
         'sha-pop': 'rgb(var(--sha-pop) / <alpha-value>)',
