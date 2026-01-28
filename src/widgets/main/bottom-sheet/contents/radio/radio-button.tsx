@@ -9,7 +9,7 @@ interface RadioButtonProps {
 export function RadioButton({ label, checked, onClick }: RadioButtonProps) {
   return (
     <button
-      className="flex items-center justify-between w-full px-[2.4rem]"
+      className="flex items-center justify-between w-full h-[5.6rem] px-[2.4rem]"
       onClick={onClick}
     >
       <span className="typo-body1">{label}</span>

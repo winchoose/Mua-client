@@ -9,7 +9,7 @@ interface LocationSearchProps {
 
 export function LocationSearch({ value, onChange }: LocationSearchProps) {
   return (
-    <div className="flex items-center justify-center gap-[1.6rem]">
+    <div className="flex items-center justify-center h-[9.2rem] [gap-[1.6rem]">
       <Input
         inputSize={'sm'}
         value={value}

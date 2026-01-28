@@ -9,7 +9,7 @@ interface RadioContentProps {
 
 export function RadioContent({ value, onChange }: RadioContentProps) {
   return (
-    <div className="flex flex-col gap-[2.4rem]">
+    <div className="flex flex-col">
       <RadioButton
         label="최신순"
         checked={value === 'latest'}

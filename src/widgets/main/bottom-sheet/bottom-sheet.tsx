@@ -63,22 +63,24 @@ function Header({
   rightAction?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col border-b">
-      <div className="flex justify-center pt-[0.8rem]">
+    <div className="flex flex-col">
+      <div className="flex items-center h-[2.4rem] justify-center">
         <div className="w-[4rem] h-[0.4rem] rounded-full bg-gray-200" />
       </div>
-      <div className="flex items-center justify-center px-[1.6rem] py-[1.2rem] relative">
+      <div className="flex h-[3rem] items-center justify-center px-[1rem] py-[0.4rem] relative">
         <p className="typo-h3">{title}</p>
 
         {rightAction && (
-          <div className="absolute right-[1.6rem]">{rightAction}</div>
+          <button className="absolute typo-body3 text-gray-400 right-[2.4rem] w-[2.4rem] h-[2.1rem]">
+            {rightAction}
+          </button>
         )}
       </div>
     </div>
   );
 }
 function Content({ children }: { children: ReactNode }) {
-  return <div className="p-[1.6rem]">{children}</div>;
+  return <div>{children}</div>;
 }
 const BottomSheet = {
   Root,
