@@ -1,5 +1,5 @@
-import { CardInfo } from '@page/main/component/card/card-info';
-import { CardTitle } from '@page/main/component/card/card-title';
+import { CardInfo } from '@widgets/main/card/card-info';
+import { CardTitle } from '@widgets/main/card/card-title';
 
 interface CardProps {
   image?: string;
