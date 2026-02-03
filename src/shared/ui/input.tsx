@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
-export type InputSize = 'sm' | 'md' | 'lg';
+export type InputSize = 'sm' | 'md' | 'lg' | 'ssm';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize: InputSize;
@@ -28,6 +28,7 @@ const baseInput = `
 `;
 
 const sizeStyles: Record<InputSize, string> = {
+  ssm: 'w-[22.4rem] h-[4.8rem]',
   sm: 'w-[26.3rem] px-[1.2rem]',
   md: 'w-[26.7rem]',
   lg: 'w-[32.7rem]',
