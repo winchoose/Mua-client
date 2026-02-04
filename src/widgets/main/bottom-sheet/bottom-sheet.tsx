@@ -15,12 +15,7 @@ interface BottomSheetProps {
 function Overlay() {
   const { onClose } = useBottomSheetContext();
 
-  return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 bg-black/30 backdrop-blur"
-    />
-  );
+  return <div onClick={onClose} className="fixed inset-0 bg-black/30" />;
 }
 
 function Root({ isOpen, onClose, children }: BottomSheetProps) {

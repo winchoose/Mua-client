@@ -9,7 +9,7 @@ interface NotificationPanelProps {
 
 export function NotificationPanel({ notifications }: NotificationPanelProps) {
   return (
-    <div className="w-[30rem] px-[1.2rem] h-[30.6rem] border border-gray-200 rounded-[12px]">
+    <div className="w-[30rem] px-[1.2rem] h-[30.6rem] bg-white border border-gray-200 rounded-[12px]">
       <div className="flex h-[5.4rem] justify-between">
         <span className="w-[6.4rem] h-[2.2rem] pt-[1.2rem] typo-h3">
           알림 내역
