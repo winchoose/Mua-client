@@ -9,6 +9,8 @@ import { RadioContent } from '@widgets/main/bottom-sheet/contents/radio/radio-co
 import { Card } from '@widgets/main/card/card';
 import { NotificationPanel } from '@widgets/main/notification/notificationPanel';
 import { useNavigate } from 'react-router';
+import { FloatingActionButton } from '@shared/ui/floatingActionButton';
+import PlusIcon from '@shared/assets/icon/plus.svg?react';
 
 export type SortType = 'latest' | 'near';
 type SheetType = 'location' | 'sort' | null;
@@ -29,6 +31,30 @@ const mockCards = [
     date: '01.02 / 10:00',
     count: '3 / 10',
     location: '역삼 체육관',
+  },
+  {
+    id: 3,
+    image: 'https://via.placeholder.com/102x128',
+    title: '역삼동 공터에서 경도 할 사람 찾고 있어요!! (성인만)',
+    date: '01.01 / 13:40',
+    count: '1 / 20',
+    location: '개나리 공원',
+  },
+  {
+    id: 4,
+    image: 'https://via.placeholder.com/102x128',
+    title: '역삼동 공터에서 경도 할 사람 찾고 있어요!! (성인만)',
+    date: '01.01 / 13:40',
+    count: '1 / 20',
+    location: '개나리 공원',
+  },
+  {
+    id: 5,
+    image: 'https://via.placeholder.com/102x128',
+    title: '역삼동 공터에서 경도 할 사람 찾고 있어요!! (성인만)',
+    date: '01.01 / 13:40',
+    count: '1 / 20',
+    location: '개나리 공원',
   },
 ];
 const mockNotifications = [
@@ -100,6 +126,15 @@ const MainPage = () => {
           />
         ))}
       </div>
+      <FloatingActionButton
+        icon={
+          <PlusIcon
+            width={'2rem'}
+            height={'2rem'}
+            onClick={() => navigate('/create')}
+          />
+        }
+      />
       <BottomSheet.Root
         isOpen={openSheet !== null}
         onClose={() => setOpenSheet(null)}
