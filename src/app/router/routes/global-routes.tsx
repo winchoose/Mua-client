@@ -1,5 +1,5 @@
 import { routePath } from '@app/router/path';
-import { MainPage, MyPage } from '@app/router/lazy';
+import { CreatPage, MainPage, MyPage } from '@app/router/lazy';
 
 export const globalRoutes = [
   {
@@ -9,5 +9,9 @@ export const globalRoutes = [
   {
     path: '/my',
     element: <MyPage />,
+  },
+  {
+    path: '/create',
+    element: <CreatPage />,
   },
 ];
