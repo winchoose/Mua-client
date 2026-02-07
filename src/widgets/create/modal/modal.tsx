@@ -2,7 +2,7 @@ import { ModalContext, useModalContext } from '@shared/hooks/use-modal-context';
 import { Button } from '@shared/ui/button';
 import { cn } from '@shared/utils/cn';
 import { cva } from 'class-variance-authority';
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -22,6 +22,17 @@ function Overlay() {
 }
 
 function Root({ isOpen, onClose, children }: ModalProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
