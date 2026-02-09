@@ -20,7 +20,8 @@ export function ModalLocationSearch({
         placeholder="예) 역삼동"
       />
       <FloatingActionButton
-        icon={<LocationIcon width={'2rem'} height={'2rem'} />}
+        mode="inline"
+        icon={<LocationIcon width="2rem" height="2rem" />}
       />
     </div>
   );
