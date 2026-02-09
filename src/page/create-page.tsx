@@ -31,7 +31,6 @@ const CreatPage = () => {
     minute: string;
   } | null>(null);
 
-  // 모달 안에서 임시로 쓰는 값
   const [tempDateTime, setTempDateTime] = useState<{
     dateText: string;
     hour: string;
@@ -89,7 +88,7 @@ const CreatPage = () => {
           )
         }
         onClick={() => {
-          setTempLocation(location); // 열 때 기존 값 복사
+          setTempLocation(location);
           setOpenModal('location');
         }}
       />
@@ -162,14 +161,13 @@ const CreatPage = () => {
             </Modal.Content>
             <Modal.Footer
               onConfirm={() => {
-                setLocation(tempLocation); // ✅ 여기서 확정
+                setLocation(tempLocation);
                 setOpenModal(null);
               }}
             />
           </Modal.Container>
         )}
 
-        {/* 날짜/시간 선택 (sm) */}
         {openModal === 'datetime' && (
           <Modal.Container size="sm">
             <Modal.Header title="일시 선택" />
