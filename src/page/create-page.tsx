@@ -114,7 +114,7 @@ const CreatPage = () => {
         />
       </div>
       <AddImage max={5} />
-      <div className="px-[2.4rem]">
+      <div className="px-[2.4rem] pb-[2rem]">
         <Button
           size="md"
           onClick={() => {
