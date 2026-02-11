@@ -1,5 +1,5 @@
 import { TopNavigation } from '@shared/ui/topNavigation';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ArrowLeftIcon from '@shared/assets/icon/arrow-left.svg?react';
 import UploadIcon from '@shared/assets/icon/upload.svg?react';
 import { Carousel } from '@widgets/postDetail/carousel/carousel';
