@@ -141,7 +141,7 @@ const PostDetailPage = () => {
           }
         </p>
       </div>
-      <div className="px-[2.4rem] py-[2rem] border boder-b">
+      <div className="px-[2.4rem] py-[2rem] border-b">
         <Comment comments={mockComments} />
       </div>
       {canApply && (
