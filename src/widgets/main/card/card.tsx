@@ -7,11 +7,22 @@ interface CardProps {
   date: string;
   count: string;
   location: string;
+  onClick: () => void;
 }
 
-export function Card({ image, title, date, count, location }: CardProps) {
+export function Card({
+  image,
+  title,
+  date,
+  count,
+  location,
+  onClick,
+}: CardProps) {
   return (
-    <div className="flex flex-low gap-[1.6rem] w-[32.7rem] h-[14.8rem] pb-[2rem] border-b border-gray-100">
+    <div
+      onClick={onClick}
+      className="flex flex-low gap-[1.6rem] w-[32.7rem] h-[14.8rem] pb-[2rem] border-b border-gray-100"
+    >
       <div className="w-[10.2rem] h-[12.8rem] shrink-0 border rounded-[8px]">
         <img src={image} />
       </div>

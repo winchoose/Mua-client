@@ -8,7 +8,7 @@ import { BottomSheetLocationSearch } from '@widgets/main/bottom-sheet/contents/b
 import { RadioContent } from '@widgets/main/bottom-sheet/contents/radio/radio-content';
 import { Card } from '@widgets/main/card/card';
 import { NotificationPanel } from '@widgets/main/notification/notificationPanel';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { FloatingActionButton } from '@shared/ui/floatingActionButton';
 import PlusIcon from '@shared/assets/icon/plus.svg?react';
 
@@ -123,6 +123,7 @@ const MainPage = () => {
             date={card.date}
             count={card.count}
             location={card.location}
+            onClick={() => navigate(`/posts/${card.id}`)}
           />
         ))}
       </div>
