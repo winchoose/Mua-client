@@ -28,7 +28,7 @@ export function Comment({ comments }: CommentProps) {
           <div className="flex flex-col gap-[2rem]" key={comment.id}>
             <CommentItem {...comment} />
 
-            <div className="flex flex-col gap-[1rem] pl-[2.4rem]">
+            <div className="flex flex-col gap-[1rem] pl-[4.4rem]">
               {comments
                 .filter((c) => c.parentId === comment.id)
                 .map((reply) => (

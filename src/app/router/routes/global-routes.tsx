@@ -1,5 +1,5 @@
 import { routePath } from '@app/router/path';
-import { CreatPage, MainPage, MyPage } from '@app/router/lazy';
+import { CreatPage, MainPage, MyPage, PostDetailPage } from '@app/router/lazy';
 
 export const globalRoutes = [
   {
@@ -13,5 +13,9 @@ export const globalRoutes = [
   {
     path: '/create',
     element: <CreatPage />,
+  },
+  {
+    path: '/posts/:id',
+    element: <PostDetailPage />,
   },
 ];

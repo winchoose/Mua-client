@@ -1,7 +1,7 @@
 import { TopNavigation } from '@shared/ui/topNavigation';
 import ArrowLeftIcon from '@shared/assets/icon/arrow-left.svg?react';
 import MapPingIcon from '@shared/assets/icon/map-pin.svg?react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { ModalButton } from '@widgets/create/modal-button';
 import Input from '@shared/ui/input';
 import { DropDown } from '@widgets/create/dropDown';
