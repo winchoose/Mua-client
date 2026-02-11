@@ -23,7 +23,7 @@ const mockNotifications = [
 const MyPage = () => {
   const navigate = useNavigate();
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [nickname, setNickname] = useState('영교');
+  const [nickname] = useState('영교');
   return (
     <div>
       <TopNavigation
