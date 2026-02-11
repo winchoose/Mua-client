@@ -114,7 +114,6 @@ const isClosed = false;
 const canApply = !isOwner && !isApplied && !isClosed;
 
 const PostDetailPage = () => {
-  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   return (
