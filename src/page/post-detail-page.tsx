@@ -132,9 +132,9 @@ const PostDetailPage = () => {
       <p className="h-[10.6rem] px-[2.4rem] py-[2rem] typo-h2 border-b">
         역삼동 공터에서 경도 할 사람 찾고 있어요!!(성인만)
       </p>
-      <div className="flex flex-col px-[2.4rem] justify-center">
+      <div className="flex items-center flex-col px-[2.4rem] justify-center">
         <DetailInfo />
-        <p className="typo-body1 w-[32.7rem] py-[2rem] border-b">
+        <p className="flex typo-body1  py-[2rem] border-b">
           {
             '역삼동 공터에서 경도 하실 분 구합니다~~ 20세 이상 성인분들만 모집하고 있어요! 즐겁게 하실 분들만 신청해주셨으면 좋겠어요~'
           }
