@@ -144,9 +144,9 @@ const PostDetailPage = () => {
         <Comment comments={mockComments} />
       </div>
       {canApply && (
-        <div className="flex flex-col items-center pt-[2rem]">
+        <div className="flex flex-col items-center px-[2.4rem] pt-[2rem]">
           <Button>참가 신청하기</Button>
-          <div className="flex gap-[1.6rem] justify-center py-[1.4rem]">
+          <div className="flex w-full gap-[1.6rem] py-[1.4rem]">
             <Input inputSize="sm" placeholder="댓글을 입력해주세요" />
             <FloatingActionButton
               mode="inline"

@@ -56,7 +56,7 @@ const NickNameChage = () => {
           <Input inputSize="lg" placeholder="닉네임을 입력하세요." />
         </div>
       </div>
-      <div className="fixed bottom-0 pb-[2rem] px-[2.4rem] ">
+      <div className="fixed w-full bottom-0 pb-[2rem] px-[2.4rem] ">
         <Button>저장하기</Button>
       </div>
     </div>

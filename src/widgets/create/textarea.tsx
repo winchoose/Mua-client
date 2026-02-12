@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react';
 type TextareaProps = ComponentProps<'textarea'>;
 
 const textVariants = cva(`
-    w-[32.7rem]
+    w-full
     h-[20rem]
     text-body1
     resize-none

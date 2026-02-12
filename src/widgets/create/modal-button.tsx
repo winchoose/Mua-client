@@ -9,7 +9,7 @@ interface ModalButtonProps {
 }
 
 const modalButtonVariants = cva(
-  'w-[32.7rem] h-[5.6rem] rounded-[16px] border px-[1.6rem] text-left typo-body1 transition-colors',
+  'w-full h-[5.6rem] rounded-[16px] border px-[1.6rem] text-left typo-body1 transition-colors',
   {
     variants: {
       hasValue: {
