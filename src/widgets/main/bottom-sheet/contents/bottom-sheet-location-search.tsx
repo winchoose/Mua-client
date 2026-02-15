@@ -12,7 +12,7 @@ export function BottomSheetLocationSearch({
   onChange,
 }: BottomSheetLocationSearchProps) {
   return (
-    <div className="flex items-center justify-center h-[9.2rem] gap-[1.6rem]">
+    <div className="flex items-center px-[2.6rem] justify-center h-[9.2rem] gap-[1.6rem]">
       <Input
         inputSize={'sm'}
         value={value}
@@ -20,6 +20,7 @@ export function BottomSheetLocationSearch({
         placeholder="동을 입력해주세요. 예) 역삼동"
       />
       <FloatingActionButton
+        mode="inline"
         icon={<LocationIcon width={'2rem'} height={'2rem'} />}
       />
     </div>

@@ -29,14 +29,14 @@ const baseInput = `
 
 const sizeStyles: Record<InputSize, string> = {
   ssm: 'w-[22.4rem] h-[4.8rem]',
-  sm: 'w-[26.3rem] px-[1.2rem]',
+  sm: 'w-full px-[1.2rem]',
   md: 'w-[26.7rem]',
-  lg: 'w-[32.7rem]',
+  lg: 'w-full',
 };
 
 const Input = ({ inputSize = 'md', icon, className, ...props }: InputProps) => {
   return (
-    <div className="relative group">
+    <div className="relative group w-full">
       {icon && (
         <span
           className="absolute left-[1.1rem] top-1/2
