@@ -16,8 +16,8 @@ export function FloatingActionButton({
     <button
       onClick={onClick}
       className={cn(
-        'rounded-[24px] text-white w-[4.4rem] h-[4.4rem] flex justify-center items-center bg-primary',
-        mode === 'fixed' && 'fixed right-[2.4rem] bottom-[5.4rem] z-50',
+        'rounded-[24px] text-white w-[4.4rem] h-[4.4rem] flex justify-center items-center bg-primary shrink-0',
+        mode === 'fixed' && 'fixed right-[2.4rem] bottom-[5.4rem] 3-50',
       )}
     >
       {icon}

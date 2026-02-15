@@ -14,7 +14,7 @@ const ButtonVariants = cva('rounded-[16px] typo-h3 text-white', {
       yellow: 'bg-yellow text-gray-950',
     },
     size: {
-      md: 'w-[32.7rem] h-[5.6rem]',
+      md: 'w-full h-[5.6rem]',
       sm: 'w-[27.6rem] h-[4.8rem]',
     },
   },

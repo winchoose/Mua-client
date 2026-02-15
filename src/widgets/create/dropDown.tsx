@@ -26,7 +26,7 @@ export function DropDown({
         <span className="text-red"> *</span>
       </p>
       <button
-        className="flex items-center justify-between w-[32.7rem] border rounded-[16px] h-[5.6rem] p-[1.6rem]"
+        className="flex items-center justify-between w-full border rounded-[16px] h-[5.6rem] p-[1.6rem]"
         onClick={() => setOpen((prev) => !prev)}
       >
         <span className={value ? 'text-gray-950' : 'text-gray-300'}>
