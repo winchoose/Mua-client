@@ -106,6 +106,7 @@ const PostDetailPage = () => {
   const isClosed = false;
 
   const canApply = !isOwner && !isApplied && !isClosed;
+
   return (
     <div>
       <TopNavigation
@@ -139,12 +140,13 @@ const PostDetailPage = () => {
       <div className="px-[2.4rem] py-[2rem] border-b">
         <Comment
           comments={commentsData ?? []}
+          participants={participants}
           isOwner={isOwner}
-          onChangeApproval={(id, status) => {
+          onChangeApproval={(participationId, status) => {
             if (status === 'approved') {
-              approveParticipation(id);
+              approveParticipation(participationId);
             } else {
-              rejectParticipation(id);
+              rejectParticipation(participationId);
             }
           }}
         />

@@ -2,24 +2,31 @@ import type { ApprovalStatus } from '@widgets/postDetail/chip/chip';
 import {
   CommentItem,
   type CommentItemProps,
+  type Participant,
 } from '@widgets/postDetail/comment/comment-item';
 
 interface CommentProps {
   comments: CommentItemProps[];
+  participants?: Participant[];
   isOwner?: boolean;
   onChangeApproval?: (
-    commentId: number,
+    participationId: number,
     status: Exclude<ApprovalStatus, 'pending'>,
   ) => void;
 }
 
-export function Comment({ comments, isOwner, onChangeApproval }: CommentProps) {
+export function Comment({
+  comments,
+  participants,
+  isOwner,
+  onChangeApproval,
+}: CommentProps) {
   const systemRoot = comments.filter(
-    (c) => c.parentId === null && c.commentType === 'SYSTEM',
+    (c) => c.parentId === null && c.commentType === 'APPLY',
   );
 
   const userRoot = comments.filter(
-    (c) => c.parentId === null && c.commentType !== 'SYSTEM',
+    (c) => c.parentId === null && c.commentType !== 'APPLY',
   );
 
   return (
@@ -31,6 +38,7 @@ export function Comment({ comments, isOwner, onChangeApproval }: CommentProps) {
           <CommentItem
             key={comment.commentId}
             {...comment}
+            participants={participants}
             isOwner={isOwner}
             onChangeApproval={onChangeApproval}
           />
@@ -40,6 +48,7 @@ export function Comment({ comments, isOwner, onChangeApproval }: CommentProps) {
           <div className="flex flex-col gap-[2rem]" key={comment.commentId}>
             <CommentItem
               {...comment}
+              participants={participants}
               isOwner={isOwner}
               onChangeApproval={onChangeApproval}
             />
@@ -51,6 +60,7 @@ export function Comment({ comments, isOwner, onChangeApproval }: CommentProps) {
                   <CommentItem
                     key={reply.commentId}
                     {...reply}
+                    participants={participants}
                     isOwner={isOwner}
                     onChangeApproval={onChangeApproval}
                   />
