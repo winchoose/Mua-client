@@ -3,7 +3,8 @@ export const END_POINT = {
     LIST: 'api/feeds',
     DETAIL: (feedId: number) => `api/feeds/${feedId}`,
     PARTICIPATION: (feedId: number) => `api/feeds/${feedId}/participations`,
-    COMMENTS: (feedId: number) => `api/feeds/${feedId}/comments`, // ✅ 추가
+    COMMENTS: (feedId: number) => `api/feeds/${feedId}/comments`,
+    CREATE: (feedId: number) => `api/feeds/${feedId}/comments`,
   },
   PARTICIPATION: {
     APPROVE: (id: number) => `api/participations/${id}/approve`,

@@ -19,6 +19,9 @@ import {
 import { getMyMemberId } from '@shared/utils/auth';
 import { COMMENT_QUERY_OPTIONS } from '@shared/api/domain/comments/query';
 import { queryClient } from '@app/providers/query-client';
+import { COMMENT_MUTATION_OPTIONS } from '@shared/api/domain/comments/query';
+import { useState } from 'react';
+import XIcon from '@shared/assets/icon/x.svg?react';
 
 const handleShare = async () => {
   const url = window.location.href;
@@ -40,6 +43,10 @@ const PostDetailPage = () => {
   const navigate = useNavigate();
   const { feedId } = useParams();
   const numericFeedId = Number(feedId);
+  const [comment, setComment] = useState('');
+  const [parentId, setParentId] = useState<number | null>(null);
+  const [replyTarget, setReplyTarget] = useState<string | null>(null);
+
   const { mutate: applyParticipation } = useMutation({
     ...PARTICIPATION_MUTATION_OPTIONS.APPLY(),
     onSuccess: () => {
@@ -85,6 +92,18 @@ const PostDetailPage = () => {
       queryClient.invalidateQueries({
         queryKey: ['participations', numericFeedId],
       });
+
+      queryClient.invalidateQueries({
+        queryKey: ['comments', numericFeedId],
+      });
+    },
+  });
+  const { mutate: createComment } = useMutation({
+    ...COMMENT_MUTATION_OPTIONS.CREATE(),
+    onSuccess: () => {
+      setComment('');
+      setParentId(null);
+      setReplyTarget(null);
 
       queryClient.invalidateQueries({
         queryKey: ['comments', numericFeedId],
@@ -142,6 +161,10 @@ const PostDetailPage = () => {
           comments={commentsData ?? []}
           participants={participants}
           isOwner={isOwner}
+          onReply={(commentId, nickname) => {
+            setParentId(commentId);
+            setReplyTarget(nickname ?? null);
+          }}
           onChangeApproval={(participationId, status) => {
             if (status === 'approved') {
               approveParticipation(participationId);
@@ -159,12 +182,46 @@ const PostDetailPage = () => {
           </Button>
         </div>
       )}
-      <div className="flex w-full gap-[1.6rem] py-[1.4rem] px-[2.4rem]">
-        <Input inputSize="sm" placeholder="댓글을 입력해주세요" />
-        <FloatingActionButton
-          mode="inline"
-          icon={<SendIcon width={'2rem'} height={'2rem'} />}
-        />
+      <div className="flex flex-col px-[2.4rem] py-[1.4rem] gap-[0.6rem]">
+        {replyTarget && (
+          <div className="flex justify-between items-center pr-[6rem] text-gray-400 typo-caption">
+            <span>↳{replyTarget}님에게 답글 작성중...</span>
+
+            <button
+              onClick={() => {
+                setParentId(null);
+                setReplyTarget(null);
+              }}
+            >
+              <XIcon width={'2rem'} height={'2rem'} />
+            </button>
+          </div>
+        )}
+
+        <div className="flex w-full gap-[1.6rem]">
+          <Input
+            inputSize="sm"
+            placeholder="댓글을 입력해주세요"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+
+          <FloatingActionButton
+            mode="inline"
+            icon={<SendIcon width={'2rem'} height={'2rem'} />}
+            onClick={() => {
+              if (!comment.trim()) return;
+
+              createComment({
+                feedId: numericFeedId,
+                body: {
+                  description: comment,
+                  parentId: parentId ?? undefined,
+                },
+              });
+            }}
+          />
+        </div>
       </div>
     </div>
   );

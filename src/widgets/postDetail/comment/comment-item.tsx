@@ -11,6 +11,7 @@ export interface CommentItemProps {
   memberId?: number;
   participationId?: number;
   createdAt?: string;
+  children?: CommentItemProps[];
 }
 
 export interface Participant {
@@ -21,6 +22,7 @@ export interface Participant {
 interface CommentItemUIProps extends CommentItemProps {
   isOwner?: boolean;
   participants?: Participant[];
+  onReply?: (commentId: number, nickname?: string) => void;
   onChangeApproval?: (
     participationId: number,
     status: Exclude<ApprovalStatus, 'pending'>,
@@ -32,7 +34,11 @@ export function CommentItem({
   description,
   commentType = 'USER',
   isOwner = false,
+  depth,
   onChangeApproval,
+  onReply,
+  commentId,
+  children,
   participationId,
   participants,
 }: CommentItemUIProps) {
@@ -77,10 +83,13 @@ export function CommentItem({
         <div className="mt-[0.4rem]">
           <p className="typo-body1 whitespace-pre-line">{description}</p>
 
-          {!isSystem && (
-            <button className="mt-[0.6rem] flex gap-[0.4rem] items-center typo-caption text-gray-500">
+          {depth === 0 && (
+            <button
+              onClick={() => onReply?.(commentId!, nickname)}
+              className="mt-[0.6rem] flex gap-[0.4rem] items-center typo-caption text-gray-500"
+            >
               <MessageIcon width={'1.8rem'} height={'1.8rem'} />
-              답글 쓰기
+              {children?.length ?? 0} 답글 쓰기
             </button>
           )}
         </div>
