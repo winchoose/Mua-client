@@ -9,6 +9,7 @@ interface CommentProps {
   comments: CommentItemProps[];
   participants?: Participant[];
   isOwner?: boolean;
+  onReply?: (commentId: number, nickname?: string) => void; // 추가
   onChangeApproval?: (
     participationId: number,
     status: Exclude<ApprovalStatus, 'pending'>,
@@ -19,6 +20,7 @@ export function Comment({
   comments,
   participants,
   isOwner,
+  onReply,
   onChangeApproval,
 }: CommentProps) {
   const systemRoot = comments.filter(
@@ -40,23 +42,24 @@ export function Comment({
             {...comment}
             participants={participants}
             isOwner={isOwner}
+            onReply={onReply}
             onChangeApproval={onChangeApproval}
           />
         ))}
 
         {userRoot.map((comment) => (
-          <div className="flex flex-col gap-[2rem]" key={comment.commentId}>
+          <div className="flex flex-col" key={comment.commentId}>
             <CommentItem
               {...comment}
               participants={participants}
               isOwner={isOwner}
+              onReply={onReply}
               onChangeApproval={onChangeApproval}
             />
 
-            <div className="flex flex-col gap-[1rem] pl-[4.4rem]">
-              {comments
-                .filter((c) => c.parentId === comment.commentId)
-                .map((reply) => (
+            {comment.children && comment.children.length > 0 && (
+              <div className="flex flex-col gap-[1rem] pl-[4.4rem] pt-[2rem]">
+                {comment.children.map((reply) => (
                   <CommentItem
                     key={reply.commentId}
                     {...reply}
@@ -65,7 +68,8 @@ export function Comment({
                     onChangeApproval={onChangeApproval}
                   />
                 ))}
-            </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
