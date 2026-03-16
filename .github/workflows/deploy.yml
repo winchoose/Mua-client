@@ -8,41 +8,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    container: pandoc/latex
+    defaults:
+      run:
+        working-directory: Mua-client
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install mustache (to update the date)
-
-        run: apk add ruby && gem install mustache
-
-      - name: creates output
-
-        run: sh ./build.sh
-
-      - name: Pushes to another repository
-
-        id: push_directory
-
-        uses: cpina/github-action-push-to-another-repository@main
-
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.AUTO_ACTIONS }}
-
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
-          source-directory: "output"
+          node-version: 20
 
-          destination-github-username: winchoose
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-          destination-repository-name: Mua-client
+      - name: Install dependencies
+        run: pnpm install
 
-          user-email: ${{ secrets.EMAIL }}
-
-          commit-message: ${{ github.event.head_commit.message }}
-
-          target-branch: main
-
-      - name: Test get variable exported by push-to-another-repository
-
-        run: echo $DESTINATION_CLONED_DIRECTORY
+      - name: Build
+        run: pnpm build
